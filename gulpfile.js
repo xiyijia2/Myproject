@@ -55,6 +55,9 @@ gulp.task("server",function(){
 gulp.task("watch",function(){
 	gulp.watch("index.html",["html"])
 	gulp.watch("sass/**",["sass"])
+	gulp.watch("img/**",["image"])
+	gulp.watch("js/**",["scripts"])
+	gulp.watch("html/**",["copy-html"])
 })
 gulp.task("default",["watch","server"])
 
