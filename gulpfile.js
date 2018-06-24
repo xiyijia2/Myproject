@@ -19,6 +19,11 @@ gulp.task("copy-html",function(){
 	.pipe(gulp.dest("dist/html"))
 	.pipe(connect.reload())
 })
+gulp.task("copy-json",function(){
+	gulp.src("jsondata/**")
+	.pipe(gulp.dest("dist/jsondata"))
+	.pipe(connect.reload())
+})
 gulp.task("sass",function(){
 	gulp.src("sass/**")
 	.pipe(sourcemaps.init())
@@ -58,6 +63,7 @@ gulp.task("watch",function(){
 	gulp.watch("img/**",["image"])
 	gulp.watch("js/**",["scripts"])
 	gulp.watch("html/**",["copy-html"])
+	gulp.watch("jsondata/**",["copy-json"])
 })
 gulp.task("default",["watch","server"])
 
