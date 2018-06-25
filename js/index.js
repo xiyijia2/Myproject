@@ -110,5 +110,98 @@ $(function(){
 		
 		return false;
 	})
-
+	
+	$(".store-link li").mouseenter(function(){
+	
+		var index=$(this).index();
+		$(this).css("background","#000").siblings().css("background","#999");
+		$(".store-box>ul>li").eq(index).show().siblings().hide();
+	})
+	$(".topall").hover(function(){
+	
+		$(this).children(".toptxt").animate({left:-20},300).siblings().animate({left:20},300);
+	},function(){
+		$(this).children(".toptxt").animate({left:0},300).siblings().animate({left:0},300);
+	})
+	$(".top2").hover(function(){
+	
+		$(this).children(".toptxt").animate({left:-20},300).siblings().animate({left:20},300);
+	},function(){
+		$(this).children(".toptxt").animate({left:0},300).siblings().animate({left:0},300);
+	})
+	$(".bottom1").hover(function(){
+	
+		$(this).children(".bottomtxt").animate({left:-20},300).siblings().animate({left:20},300);
+	},function(){
+		$(this).children(".bottomtxt").animate({left:0},300).siblings().animate({left:0},300);
+	})
+	$(".shopcenter li").hover(function(){
+		$(this).children(".shopbox").animate({top:-50},300);
+	},function(){
+		$(this).children(".shopbox").animate({top:0},300);
+	})
+	var str1="";
+	var Showmessage = document.getElementsByClassName("zhanshi")[0];
+	console.log(Showmessage);
+	$.ajax({
+		type:"get",
+		url:"jsondata/bagdata.json",
+		async:true,
+		success:function(data){
+			for(var i=0;i<data.length;i++){
+				str1+=`<li>
+						<a href="">${data[i]}</a>
+					</li>`	
+			}
+			Showmessage.innerHTML=str1;
+		}
+	
+	})
+		
+	var index1=0;
+	$(".circle span").eq(index1).css("background","#C69C6D").siblings().css("background","#666666");
+	$(".b-next").click(function(){
+		index1++;		
+		if(index1==5){
+			index1=1;
+			$(".slidebox").css("left",0);
+		}
+		if(index1==4){
+			$(".circle span").eq(0).css("background","#C69C6D").siblings().css("background","#666666");
+		}
+		$(".slidebox").animate({left:-index1*220},300);
+		
+		$(".circle span").eq(index1).css("background","#C69C6D").siblings().css("background","#666666");
+		
+		return false;
+	})
+	$(".b-pre").click(function(){
+		index1--;		
+		if(index1<0){
+			index1=3;
+			$(".slidebox").css("left",-(index1+1)*220);			
+		}
+		$(".circle span").eq(index1).css("background","#C69C6D").siblings().css("background","#666666");
+		$(".slidebox").animate({left:-index1*220},300);
+		return false;
+	})
+	var str2="";
+	var goodList = document.getElementsByClassName("goodslist");
+	$.ajax({
+		type:"get",
+		url:"jsondata/picture.json",
+		async:true,
+		success:function(data){
+			for(var i=0;i< data.length;i++){
+				str2+=`<li>
+						<a href="">
+							<img src="${data[i]}" />
+						</a>
+					</li>`
+			}
+			goodList.innerHTML=str2;
+		}
+	
+	})
+	
 });
