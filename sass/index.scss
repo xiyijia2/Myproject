@@ -6,6 +6,12 @@ a{text-decoration:none; color:#333;}
 h1,h2,h3,h4,h5,h6{font-weight:100;}
 body{ font-family:"微软雅黑";}
 input,a{outline:none;}
+.fr{
+    float:right;
+}
+.fl{
+    float:left;
+}
 
 #top{
     img{
@@ -213,6 +219,7 @@ input,a{outline:none;}
         form{
             width:348px;
             height:38px;
+            position: relative;
             #txt{
                 width:261px;
                 border:2px solid #c69c6d;
@@ -227,6 +234,24 @@ input,a{outline:none;}
                 background:#c69c6d;
                 border:0;
                 color:white;
+            }
+            #tip{ 
+                position:absolute;
+                top:38px;
+                overflow: hidden;
+                background:#fff;
+                border:1px solid #D4D4D4;
+                z-index:5;
+                
+                li{
+                    float:left;
+                    font-size:12px;
+                    color:#fff;
+                    margin:4px;
+                    &:hover a{
+                        color:#DE3A3A;
+                    }
+                }
             }
             
         }
@@ -336,6 +361,7 @@ input,a{outline:none;}
                    //text-align:center;
                    padding:0;
                    width:98px;
+                   position:relative;
                    a{
                        display: inline-block;
                        width:98px;
@@ -344,14 +370,38 @@ input,a{outline:none;}
                     }
                }
                
-               li.menuhover{
+               li:hover{
                    .third{
                        display:block;
+                       a:hover{
+                           color:#A60000;
+                       }
                    }
                }
                .third{
                    position: absolute;
                    display:none;
+                   left:98px;
+                   top:0;
+                   background:#fff;
+                   //border:1px solid #E4E4E4;
+                   width:800px;
+                   min-height:220px;
+                  > div{
+                       border-bottom:1px dashed #d7d7d7;
+                       margin-bottom:8px;
+                   }
+          
+                   h2{
+                       color:#cf0201;
+                       font-weight: 700;
+                       font-size:14px;
+                       margin-left:30px;
+                   }
+                   a{
+                       color:#8c8a8a;
+                   }
+                   
                }
                > li{
                    background:url(../img/brand_category2.png) no-repeat ;
@@ -458,4 +508,282 @@ input,a{outline:none;}
         }
     }
 }
+//footer
+#footer_message_bg{
+    background: url(../img/footer_message_bg.jpg) center;
+    border-top: 1px solid #c9c9c9;
+}
+#footer_message{
+    width: 1210px;
+    height: 600px;
+    margin: 0 auto;
+    position: relative;
+    p{
+        font-size: 12px;
+        margin-top:10px;
+    }
+}
+#footer_message a{
+    color: #333;
+    font-size: 12px;
+}
+#footer_message a:hover{
+    text-decoration: underline;
+} 
+#footer_message .footer_message_top{
+    height: 116px;
+    border-bottom: 1px solid #c9c9c9;
+    clear: both;
+}
+.footer_message_top li{
+    width: 242px;
+    height: 64px;
+    float: left;
+    margin-top: 26px;
+}
+.footer_message_top img{
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 5px;
+    cursor: pointer;
+    vertical-align: top;
+    float: left;
+}
+.footer_message_top01_r{
+    display: inline-block;
+    float: left;
+    width: 160px;
+    height: 48px;
+    margin-top: 8px;
+}
+.footer_message_top01_r .p1{
+    font-weight: bold;
+}
+#footer_message .footer_message_ctr{
+    height: 283px;
+    clear: both;
+}
+.footer_message_ctr_l{
+    float: left;
+}
+.footer_message_ctr_l li{
+    width: 185px;
+    overflow: hidden;
+    float: left;
+}
+.footer_message_ctr_l span{
+    display: block;
+}
+.footer_message_ctr_l .sp01{
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #000;
+}
+.footer_message_ctr_l a:hover{
+    text-decoration: underline;
+}
+.footer_message_ctr_l .pht_app{
+    width: 140px;
+    height: 283px;
+}
+.pht_app img{
+    display: block;
+    width: 80px;
+    height: 80px;
+    vertical-align: top;
+}
+.footer_message_ctr_l .pht_weibo{
+    width: 125px;
+    height: 283px;
+}
+.pht_weibo img{
+    display: block;
+    width: 80px;
+    height: 80px;
+    vertical-align: top;
+}
+#footer_message .footer_message_btm a{
+    color: #fff;
+}
+#footer_message .footer_message_btm{
+    text-align: center;
+    color: #fff;
+}
+.footer_message_btm_t{
+    line-height: 66px;
+}
+.footer_message_btm_b{
+    margin-top: 23px;
+    overflow: hidden;
+    position: absolute;
+    width:333px;
+    left:0;
+    right:0;
+    margin:auto;
+    bottom:20px;
+}
+.footer_message_btm_b img{
+    float:left;
+    width: 108px;
+    height: 40px;
+    margin-right:3px;
+}
+#asidebtn{
+  height:100%;
+  position:fixed;
+  top:0;
+  right:0;
+  width:37px;
+  z-index: 99;
+  .btnmessage{
+      overflow: hidden;
+      height:100%;
+  }
+   li{
+         background:#333;
+         margin-bottom:1px;
+         border-top-left-radius: 5px;
+         border-bottom-left-radius: 5px; 
+         display:block;
+         position: relative;
+         height:35px;
+         cursor:pointer;
+         z-index:9;
+         vertical-align: top;
+         padding-bottom:1px; 
+         
+         .menumess{
+             display:none;
+             position:absolute;
+             z-index:9999;
+             right:35px;
+             top:0;
+             width:99px;
+             height:33px;
+             line-height:33px;
+             text-align:center;
+             color:rgb(54,54,54);
+             background:rgb(255,255,255);
+             font-size:14px;
+             border-width:1px 1px 1px;
+             border-style:solid none solid solid;
+             border-color:rgb(228,228,228) rgb(228,228,228) rgb(228,228,228);
+             border-right:none;
+         }
+         .wechat{
+             
+             position: absolute;
+             top:0;
+             right:35px;
+             width:124px;
+             height:135px;
+             background:#fff;
+             z-index:9999;
+             cursor: default;
+             border:1px solid #e4e4e4;
+             border-right:0;
+         }
+         a{
+             width:35px;
+             height:35px;
+             cursor: pointer;
+            // position:relative;
+             display: block;
+          
+         }
+      }
+  .topone{     
+        position:absolute;
+        z-index: 2;
+        top: 30%;
+        left: 0;
+        width:35px;
+        height:234px;   
+              
+      .l1{
+          
+            .menumess{
+             opacity: 0;
+        }
+    }
+      
+      .l1 a{
+         background: url(../img/share02.png) no-repeat -88px -156px;
+         &:hover{
+             background: url(../img/share02.png) no-repeat -88px -123px;
+             
+            
+         }
+             
+    }
+      .l2 a{
+          background: url(../img/share02.png) no-repeat -140px -154px;
+           &:hover{
+             background: url(../img/share02.png) no-repeat -88px -123px;
+             
+         }
+      }
+      .l3 a{
+           background: url(../img/share02.png) no-repeat -202px -155px;
+            &:hover{
+             background: url(../img/share02.png) no-repeat -202px -123px;
+             
+         }
+       }
+      .l4 a{
+           background: url(../img/share02.png) no-repeat -258px -125px; 
+            &:hover{
+             background: url(../img/share02.png) no-repeat -258px -123px;
+             
+         }
+      }
+    
+  }
+  .bottomone{
+ 
+      position:absolute;
+      width:35px;
+      height:140px;
+      left:0;
+      bottom:35px;
+      z-index: 2;      
+      .l5 a{
+          background: url(../img/share02.png) no-repeat -312px -155px;
+           &:hover{
+             background: url(../img/lux_index.png) no-repeat -475px -52px;
+             
+         }
+        }
+      .l6 a{
+           
+           background: url(../img/share02.png) no-repeat -374px -157px; 
+            &:hover{
+             background: url(../img/lux_index.png) no-repeat -124px -52px;
+             
+         }     
+        }
+      
+      .l7 a{ 
+          
+          background: url(../img/line_bg.png) no-repeat 10px 9px;
+           &:hover{
+             background: url(../img/line_bg.png) no-repeat 10px -19px;
+             
+         }
+          
+        }
+      
+      .l8 a{ 
+          
+          background: url(../img/share02.png) no-repeat -437px -153px; 
+           &:hover{
+             background: url(../img/lux_index.png) no-repeat -401px -52px;
+             
+         }     
+        }
+    }
+}    
 
