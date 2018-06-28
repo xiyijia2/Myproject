@@ -1,9 +1,10 @@
 $(function(){
 	//搜索商品
-	var str="";
+	
 	var tip=document.getElementById("tip");	
 	var oTxt=document.getElementById("txt");
-	oTxt.oninput=function(){
+	oTxt.onfocus = oTxt.oninput=function(){
+		$("#tip").show();
 		var val=oTxt.value;
 		$.ajax({
 		type:"get",
@@ -12,20 +13,18 @@ $(function(){
 		async:true,
 		dataType:"jsonp",
 		success:function(data){
-			var first=data.result;
-			console.log(first);
-			
+			var str="";
+			var first=data.result;			
 			for(var i=0;i<first.length;i++){
 				str+="<li><a href ='https://s.taobao.com/search?q="+first[i][0]+"'>"+first[i][0]+"</a></li>";			
 			}
 			tip.innerHTML=str;
 		}
-		
-		
+				
 	});
 	oTxt.onblur=function(){
 			
-		$("#tip").remove();
+		$("#tip").hide();
 	}
 				
 }
@@ -291,5 +290,14 @@ $(function(){
 		})
 		
 	}
+		var num=0;
+		$.getJSON("http://datainfo.duapp.com/shopdata/getCar.php?callback=?",{userID:$.cookie("username")},function(data){
+			for(var i=0;i<data.length;i++){
+				num=num+parseInt(data[i].number);
+			}
+		$("#cartnum").text(num);
+		console.log(num);
+	})
+		
 	
 });
